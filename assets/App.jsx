@@ -1,7 +1,7 @@
 export const App = () => {
     return (
-        <div>
-            <h1 className="text-3xl font-bold">Hello, Vite + React!</h1>
+        <div className="flex min-h-svh flex-col items-center justify-center">
+            Hello Symfony + Vite + React + Shadcn!
         </div>
     );
 };

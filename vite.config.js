@@ -1,15 +1,21 @@
+import path from "path";
 import { defineConfig } from "vite";
 import symfonyPlugin from "vite-plugin-symfony";
 import react from '@vitejs/plugin-react';
 import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-    plugins: [
-        react(),
-        symfonyPlugin(),
-        tailwindcss(),
-    ],
-      build: {
+  plugins: [
+    react(),
+    symfonyPlugin(),
+    tailwindcss(),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "assets")
+    }
+  },
+  build: {
     outDir: 'public/build',
     emptyOutDir: true,
     rollupOptions: {
