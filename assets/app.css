@@ -113,7 +113,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-@theme {  
+@theme {
   --font-sans: "Geist", "ui-sans-serif", "system-ui";
 }
 
@@ -121,6 +121,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply font-sans bg-background text-foreground;
   }
