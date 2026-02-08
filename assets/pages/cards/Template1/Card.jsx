@@ -1,8 +1,8 @@
 
 import { motion } from "framer-motion";
-import { Button } from "./Button";
+import { Button } from "../components/Button";
 
-export const Letter = () => {
+export const Card = () => {
   return (
     <div className="flex flex-col py-6 px-3 gap-5 text-white font-bold">
       <div className="">
