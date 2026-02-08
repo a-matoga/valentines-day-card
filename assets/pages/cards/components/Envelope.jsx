@@ -49,9 +49,9 @@ export const Envelope = ({ children }) => {
     };
 
     return (
-        <div ref={scope} className="relative flex flex-1 justify-center items-center">
+        <div ref={scope} className="relative flex flex-1 flex-col justify-center items-center">
             <div
-                className={clsx("envelope relative w-70 h-45 shadow-lg", open ? "cursor-default" : "cursor-pointer ")}
+                className={clsx("envelope relative w-70 h-45 shadow-2xl", open ? "cursor-default" : "cursor-pointer ")}
                 onClick={() => handleClick()}
             >
                 <MotionFlap
@@ -60,7 +60,8 @@ export const Envelope = ({ children }) => {
                 <Pocket className="absolute w-full h-full top-0 left-0 z-20" />
                 <Inside className="absolute w-full h-full top-0 left-0 z-0" />
             </div>
-            <div className="card flex absolute bg-red-300 z-10 rounded-lg shadow-lg min-w-60 min-h-39 max-w-125 box-border p-2">
+            <div className="envelope absolute flex top-50 text-2xl font-bold p-5 rounded-2xl shadow-2xl w-70 justify-center items-center bg-rose-300 text-white mt-4">Kliknij w kopertę</div>
+            <div className="card flex absolute bg-red-200 z-10 rounded-lg shadow-2xl min-w-60 min-h-39 max-w-125 box-border p-2">
                 <div className="flex flex-1 border-4 border-red-400 border-dashed rounded-lg ">
                     {showContent ? (
                         <div>
