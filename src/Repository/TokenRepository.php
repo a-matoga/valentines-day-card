@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Repository;
+
+use App\Entity\Token;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
+
+/**
+ * @extends ServiceEntityRepository<Token>
+ */
+class TokenRepository extends ServiceEntityRepository
+{
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Token::class);
+    }
+
+     public function findValid(string $token): ?Token
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.token = :token')
+            ->andWhere('t.startAt <= :now')
+            ->andWhere('t.endAt IS NULL OR t.endAt > :now')
+            ->setParameter('token', $token)
+            ->setParameter('now', new \DateTimeImmutable())
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+    //    /**
+    //     * @return Token[] Returns an array of Token objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('t')
+    //            ->andWhere('t.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('t.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Token
+    //    {
+    //        return $this->createQueryBuilder('t')
+    //            ->andWhere('t.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
+}
