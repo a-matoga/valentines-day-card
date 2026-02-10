@@ -43,7 +43,7 @@ export const Envelope = ({ children }) => {
             await animate(".card", { y: "-100vh" }, { duration: 0.5 });
             await animate(".card", { rotate: 0 }, { duration: 0 });
             setShowContent(true);
-            animate(".card", { y: 0 }, { duration: 0.5 });
+            animate(".card", { y: -100 }, { duration: 0.5 });
             animate(".envelope", { y: "100vh", opacity: 0, display: "none" }, { duration: 0.5 });
         }
     };

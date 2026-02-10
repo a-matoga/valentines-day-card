@@ -114,7 +114,7 @@
 }
 
 @theme {
-  --font-sans: "Geist", "ui-sans-serif", "system-ui";
+  --font-sans: "VT323", "ui-sans-serif", "system-ui";
   --color-blush-50: oklch(0.98 0.015 5);
   --color-blush-100: oklch(0.95 0.035 8);
   --color-blush-200: oklch(0.90 0.065 12);
