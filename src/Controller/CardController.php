@@ -10,10 +10,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/card', name: 'app_card_')]
+//WIP
+
+#[Route('/api/card', name: 'app_card_')]
 final class CardController extends AbstractController
 {
-    private const TOKEN_LENGTH = 64;
+    private const TOKEN_LENGTH = 32;
     private $tokenRepository;
 
     public function __construct(TokenRepository $tokenRepository)
@@ -21,7 +23,7 @@ final class CardController extends AbstractController
         $this->tokenRepository = $tokenRepository;
     }
 
-    #[Route('/card/{urlToken}', name: 'get_content', methods: ['GET'])]
+    #[Route('/{urlToken}', name: 'get_card_content', methods: ['GET'])]
     public function index($urlToken): JsonResponse
     {
         if (strlen($urlToken) !== self::TOKEN_LENGTH) {
@@ -50,10 +52,9 @@ final class CardController extends AbstractController
         }
 
         return $this->json([
-            'data' => [
                 'name' => $card->getName(),
+                'cardSymbol' => $card->getTemplate()->getSymbol(),
                 'content' => $card->getContent(),
-            ]
         ], 200);
     }
 }

@@ -1,4 +1,4 @@
-import { Envelope } from "../components/Envelope";
+import { Envelope } from "../../components/Envelope";
 import { Card } from "./Card";
 
 
