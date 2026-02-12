@@ -92,16 +92,18 @@ export const Card = () => {
           <p className="mt-3 text-center text-2xl text-green-600 font-bold">
             Udzielono odpowiedź: TAK <br /> dziękuję, kocham Cię bardzo ❤️
           </p>
-        ) : answer === "no" ? (
-          <p className="mt-3 text-2xl text-center text-red-600 font-bold">
-            Nieprawidłowa odpowiedź!
-          </p>
         ) : (
           <div className="flex flex-row z-10 w-full items-stretch gap-2">
             <Button onClick={handleYesClick} disabled={loading}>Tak</Button>
             <Button onClick={() => setAnswer("no")} disabled={loading}>Nie</Button>
           </div>
         )}
+
+        {answer === "no" ? (
+          <p className="mt-3 text-2xl text-center text-red-600 font-bold">
+            Nieprawidłowa odpowiedź!
+          </p>
+        ) : null}
 
         <img
           src="/assets/img/hellokitty.png"
