@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "valentines-day-card",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
